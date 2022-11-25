@@ -10,7 +10,12 @@ export default component$(() => {
   })
 
   const contextState = useContext(MyContext)
-  
+
+  useClientEffect$(() => {
+    if(localStorage.getItem('corgi-basket')){
+        contextState.items = JSON.parse(localStorage.getItem('corgi-basket')).items
+    }
+  })
   // useClientEffect$(() => {
   //   if(localStorage.getItem('corgi-basket')){
   //     const currBasket = JSON.parse(localStorage.getItem('corgi-basket'))
@@ -71,13 +76,17 @@ export default component$(() => {
                             }
                             return acc
                           }, [])
+                          localStorage.setItem('corgi-basket',JSON.stringify(contextState));
                       }}
                       ></i>
                     </div>
                   )
                 })}
                 <button class="border border-solid font-semibold bg-white border-slate-500 py-8 text-xl hover:bg-slate-300"
-                onClick$={() => {contextState.items = []}}>
+                onClick$={() => {
+                    contextState.items = []
+                    localStorage.setItem('corgi-basket',JSON.stringify(contextState));
+                }}>
                   Checkout
                 </button>
               </div> :
