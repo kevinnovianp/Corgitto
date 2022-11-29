@@ -1,9 +1,8 @@
 import { component$, useClientEffect$, useContext, useStore } from '@builder.io/qwik';
-import { DocumentHead, useLocation } from '@builder.io/qwik-city';
+import { DocumentHead } from '@builder.io/qwik-city';
 import { MyContext } from '~/root';
 
 export default component$(() => {
-  const loc = useLocation();
 
   const state = useStore({
     name: '',
@@ -34,7 +33,7 @@ export default component$(() => {
             <h2 class="text-xl">{state.name}</h2>
             <p>${state.price}</p>
         </div>
-        <button class="border py-2 border-slate-900 border-solid px-8 mx-auto hover:opacity-50"
+        <button class="border py-2 border-slate-900 border-solid px-8 mb-8 mx-auto hover:opacity-50"
         onClick$={() => {
             let currBasket = {items: []}
             if(localStorage.getItem('corgi-basket')){
@@ -53,5 +52,5 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Qwik Flower',
+  title: 'Corgitto',
 };

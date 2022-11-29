@@ -31,7 +31,7 @@ export default component$(() => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;800&display=swap" rel="stylesheet"></link>
       </head>
-      <body lang="en" class="flex flex-col min-h-screen">
+      <body lang="en" class="flex flex-col min-h-screen bg-slate-100">
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
